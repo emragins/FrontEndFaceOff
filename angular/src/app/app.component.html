@@ -1,24 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
   <img width="300" alt="Chucky" src="/assets/chucky.jpg">
 </div>
-<p>
-  <ngb-alert [dismissible]="false">
-    <strong>Warning!</strong> Better check yourself, you're not looking too good.
-  </ngb-alert>
-</p>
-<h2>Here are some links to help you start: </h2>
-<div ngbDropdown class="d-inline-block">
-  <button class="btn btn-outline-primary" id="chuckyCategoryChoices" ngbDropdownToggle>Chucky Joke Categories</button>
-  <div ngbDropdownMenu aria-labelledby="chuckyCategoryChoices">
-    <button *ngFor="let cat of categories" class="dropdown-item" (click)="setCategory(cat)">{{cat}}</button>
+
+  <div aria-labelledby="chuckyCategoryChoices" style="text-align: center">
+    <button *ngFor="let cat of categories" class="btn btn-outline-primary"
+    style="margin: .2em .8em"
+    (click)="setCategory(cat)">{{cat}}</button>
   </div>
-</div>
 
 <p ng-bind="category">{{category}}</p>
+
+<div class="joke">
+  <p ng-bind="jokeText">{{jokeText}}</p>
+</div>
 
 <ul>
   <li>
@@ -32,3 +31,4 @@
     </h2>
   </li>
 </ul>
+</div>
