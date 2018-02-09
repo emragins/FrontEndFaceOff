@@ -11,6 +11,9 @@
   </ngb-alert>
 </p>
 <h2>Here are some links to help you start: </h2>
+<ul *ngFor="let cat of categories">
+  <li>{{cat}}</li>
+</ul>
 <ul>
   <li ngbButtonLabel>sup
   </li>

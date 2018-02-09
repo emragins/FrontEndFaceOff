@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
+import {ChuckyService } from './chucky.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ChuckyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
