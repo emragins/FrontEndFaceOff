@@ -12,8 +12,14 @@ export class AppComponent implements OnInit {
 
   title = 'app';
   categories = [];
+  category = "";
 
   constructor(private chuckyService: ChuckyService) {
+  }
+
+  setCategory(cat: string) {
+    debugger
+    this.category = cat;
   }
 
   ngOnInit() {
