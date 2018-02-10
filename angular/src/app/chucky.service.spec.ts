@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ChuckyServiceService } from './chucky-service.service';
+import { ChuckyService } from './chucky.service';
 
-describe('ChuckyServiceService', () => {
+describe('ChuckyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ChuckyServiceService]
+      providers: [ChuckyService]
     });
   });
 
-  it('should be created', inject([ChuckyServiceService], (service: ChuckyServiceService) => {
+  it('should be created', inject([ChuckyService], (service: ChuckyService) => {
     expect(service).toBeTruthy();
   }));
 });
