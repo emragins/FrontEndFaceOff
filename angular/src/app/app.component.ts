@@ -17,9 +17,10 @@ export class AppComponent implements OnInit {
   category = "";
   jokeText = "";
 
-  cycleRandomJokes = true;
+  jokeTrainRunning = true;
   randomJokeText = "";
 
+  color = "";
   constructor(private chuckyService: ChuckyService, ) {
   }
 
@@ -32,10 +33,16 @@ export class AppComponent implements OnInit {
   loopRandomJokes() {
     Observable.timer(0, 10000)
       .subscribe(ticks => {
-        if (this.cycleRandomJokes) {
+        if (this.jokeTrainRunning) {
           this.updateRandomJoke();
         }
       });
+  }
+
+  setJokeTrainTo($event) {
+    this.jokeTrainRunning = $event;
+    this.color = !$event ? "#efefef" : "";
+
   }
 
   updateRandomJoke() {
