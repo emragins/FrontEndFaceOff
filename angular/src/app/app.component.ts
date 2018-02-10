@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChuckyService } from "./chucky.service";
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,32 @@ export class AppComponent implements OnInit {
   category = "";
   jokeText = "";
 
-  constructor(private chuckyService: ChuckyService) {
+  cycleRandomJokes = true;
+  randomJokeText = "";
+
+  constructor(private chuckyService: ChuckyService, ) {
   }
+
+
+  ngOnInit() {
+    this.getCategories();
+    this.loopRandomJokes();
+  }
+
+  loopRandomJokes() {
+    Observable.timer(0, 10000)
+      .subscribe(ticks => {
+        if (this.cycleRandomJokes) {
+          this.updateRandomJoke();
+        }
+      });
+  }
+
+  updateRandomJoke() {
+    this.chuckyService.getRandomJoke()
+      .subscribe(j => this.randomJokeText = j.value);
+  }
+
 
   setCategory(cat: string) {
     this.category = cat;
@@ -26,9 +51,6 @@ export class AppComponent implements OnInit {
       .subscribe(r => this.jokeText = <string>r.value);
   }
 
-  ngOnInit() {
-    this.getCategories();
-  }
 
   getCategories(): void {
 

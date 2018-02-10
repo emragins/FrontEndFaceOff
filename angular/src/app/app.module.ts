@@ -5,10 +5,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
 import {ChuckyService } from './chucky.service';
+import { JokeComponent } from './joke/joke.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JokeComponent
   ],
   imports: [
     BrowserModule,
